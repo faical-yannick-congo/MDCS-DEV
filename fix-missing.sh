@@ -23,9 +23,9 @@ submodules=${submodules}"apps/core_oaipmh_provider_app apps/core_parser_app apps
 
 echo "Before going further you must fork all the submodules to a common github/gitlab/... userspace or group space:"
 echo "+++List of submodules+++"
-echo "\tSubmodule: web"
+echo "   Submodule: web"
 for f in ${submodules}; do
-  echo "\tSubmodule: "${f}
+  echo "   Submodule: "${f}
 done;
 
 read -p "Enter your submodules origin url (https://github.com/username_group): " origin_url
@@ -46,9 +46,9 @@ if test -z "$origin_url"
 then
     echo "..."
 else
-    git remote add origin ${origin_url}/web.git
+    git remote add origin ${origin_url}/MDCS-2.0.git
 fi
-git remote add upstream https://github.com/usnistgov/web.git
+git remote add upstream https://github.com/faical-yannick-congo/MDCS-2.0.git
 cd ..
 echo "...web fixed"
 
