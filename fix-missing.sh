@@ -21,6 +21,10 @@ submodules=${submodules}"apps/core_main_app apps/core_module_blob_host_app apps/
 submodules=${submodules}"apps/core_module_periodic_table_app apps/core_module_text_area_app apps/core_oaipmh_common_app apps/core_oaipmh_harvester_app "
 submodules=${submodules}"apps/core_oaipmh_provider_app apps/core_parser_app apps/core_website_app apps/signals_utils apps/xml_utils"
 
+echo "Setting the base upstream..."
+git remote add upstream https://github.com/faical-yannick-congo/MDCS-DEV.git
+echo "...base upstream set"
+
 echo "Before going further you must fork all the submodules to a common github/gitlab/... userspace or group space:"
 echo "+++List of submodules+++"
 echo "   Submodule: web"
@@ -28,7 +32,7 @@ for f in ${submodules}; do
   echo "   Submodule: "${f}
 done;
 
-read -p "Enter your submodules origin url (https://github.com/username_group): " origin_url
+read -p "Enter your submodules origin url (git@github.com:username_group): " origin_url
 
 if test -z "$origin_url"
 then
