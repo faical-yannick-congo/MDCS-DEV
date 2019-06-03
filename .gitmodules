@@ -1,6 +1,6 @@
 [submodule "web"]
 	path = web
-	url = git@github.com:cdcs-repos/MDCS.git
+	url = git@github.com:faical-yannick-congo/MDCS-2.0.git
 [submodule "apps/core_main_app"]
 	path = apps/core_main_app
 	url = git@github.com:cdcs-repos/core_main_app.git
