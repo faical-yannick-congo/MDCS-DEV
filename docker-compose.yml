@@ -1,0 +1,115 @@
+version: "2.1"
+services:
+  apps:
+    build:
+      context: ./apps
+      args:
+        - docker_admin=mdcsadmin
+    image: mdcs-apps:1.0.1
+    healthcheck:
+      test: ["CMD", "/home/${docker_admin}/anaconda/envs/mdcs/bin/python", "-c", "'import core_main_app'"]
+  mongo:
+    build:
+      context: ./mongo
+      args:
+        - docker_admin=mdcsadmin
+    image: mdcs-mongo:2.0
+    ports:
+      - "27017:27017"
+      - "28017:28017"
+    volumes:
+      - /Users/fyc/mdcs/data/db:/data/db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:28017"]
+      interval: 30s
+      timeout: 30s
+      retries: 10
+  redis:
+    build:
+      context: ./redis
+      args:
+        - docker_admin=mdcsadmin
+    image: mdcs-redis:2.0
+    restart: always
+    ports:
+      - "6379:6379"
+      - "6380:6380"
+    volumes:
+      - /Users/fyc/mdcs/redis/data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "info", "server"]
+      interval: 1m
+      timeout: 1m
+      retries: 10
+  postgres:
+    build:
+      context: ./postgres
+      args:
+        - docker_admin=mdcsadmin
+        - postgres_user=curator
+        - postgres_password=curator
+        - postgres_db=mdcs
+    image: mdcs-postgres:2.0
+    ports:
+      - "5440:80"
+      - "5432:5432"
+    volumes:
+      - /Users/fyc/mdcs/postgresql/data:/var/lib/postgresql/data
+      - /Users/fyc/mdcs/postgresql/conf/config.inc.php:/etc/phppgadmin/config.inc.php
+      - /Users/fyc/mdcs/apache2/conf/apache2.conf:/etc/apache2/apache2.conf
+      - /Users/fyc/mdcs/apache2/conf/phppgadmin.conf:/etc/apache2/conf-available/phppgadmin.conf
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost/phppgadmin/"]
+      interval: 30s
+      timeout: 30s
+      retries: 10
+  web:
+    build:
+      context: ./web
+      args:
+        - docker_admin=mdcsadmin
+        - mongodb_db=mgi
+        - mongodb_admin_username=mdcs_admin_user
+        - mongodb_admin_password=mdcs_admin_pwd
+        - mongodb_username=mdcs_user
+        - mongodb_password=mdcs_pwd
+        - mdcs_username=mgi_superuser
+        - mdcs_password=mgi_superuser_pwd
+        - mdcs_email=user_email@institution.com
+    image: mdcs-web:2.0
+    ports:
+      - "8000:8000"
+    depends_on:
+      apps:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 30s
+      retries: 10
+  nginx:
+    build:
+      context: ./nginx
+      args:
+        - docker_admin=mdcsadmin
+    image: mdcs-nginx:2.0
+    ports:
+      - "80:80"
+    depends_on:
+      web:
+        condition: service_healthy
+    # volumes:
+      # - ./certs:/etc/nginx/ssl
+      # - ./certs/mdcs2.key:/etc/nginx/ssl/mdcs1.nist.gov.key
+      # - ./certs/mdcs2.cer:/etc/nginx/ssl/mdcs1.nist.gov.cer
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://0.0.0.0"]
+      interval: 30s
+      timeout: 30s
+      retries: 10

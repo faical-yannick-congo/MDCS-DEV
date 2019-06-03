@@ -1,0 +1,34 @@
+name: mdcs
+dependencies:
+  - python=2.7
+  - pip:
+      # Installs: django-mongoengine==0.2.1
+    - https://github.com/MongoEngine/django-mongoengine/tarball/v0.2.1#egg=django-mongoengine-0.2.1
+    - mock==2.0.0
+    - markdown==2.6.9
+    - mongoengine==0.11.0
+    - mongomock==3.8.0
+    - pymongo==3.5.1
+    - python-dateutil==2.6.1
+    - xmltodict==0.11.0
+    - xlrd==1.1.0
+    - lxml==4.1.1
+    - iso8601==0.1.12
+    - redis==2.10.6
+    - celery==4.1.1
+      # FIXME: upgrade celery and remove kombu
+    - kombu==4.3.0
+      # Django
+    - Django==1.11.20
+    - django-password-policies==0.4.2
+    - django-simple-menu==1.2.1
+    - djangorestframework==3.7.3
+    - django-rest-framework-mongoengine==3.3.1
+    - django-simple-menu==1.2.1
+    - django-oauth-toolkit==1.0.0
+    - django-mongoengine-forms==0.4.5
+    - django-rest-swagger==2.1.2
+    - django-tz-detect==0.2.9
+
+    - requests==2.20.0
+    - sickle==0.6.4

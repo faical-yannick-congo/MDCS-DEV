@@ -1,0 +1,78 @@
+[submodule "web"]
+	path = web
+	url = git@github.com:cdcs-repos/MDCS.git
+[submodule "apps/core_main_app"]
+	path = apps/core_main_app
+	url = git@github.com:cdcs-repos/core_main_app.git
+[submodule "apps/core_website_app"]
+	path = apps/core_website_app
+	url = git@github.com:cdcs-repos/core_website_app.git
+[submodule "apps/core_dashboard_common_app"]
+	path = apps/core_dashboard_common_app
+	url = git@github.com:cdcs-repos/core_dashboard_common_app.git
+[submodule "apps/core_explore_common_app"]
+	path = apps/core_explore_common_app
+	url = git@github.com:cdcs-repos/core_explore_common_app.git
+[submodule "apps/core_curate_app"]
+	path = apps/core_curate_app
+	url = git@github.com:cdcs-repos/core_curate_app.git
+[submodule "apps/core_dashboard_app"]
+	path = apps/core_dashboard_app
+	url = git@github.com:cdcs-repos/core_dashboard_app.git
+[submodule "apps/core_explore_example_app"]
+	path = apps/core_explore_example_app
+	url = git@github.com:cdcs-repos/core_explore_example_app.git
+[submodule "apps/core_explore_keyword_app"]
+	path = apps/core_explore_keyword_app
+	url = git@github.com:cdcs-repos/core_explore_keyword_app.git
+[submodule "apps/core_federated_search_app"]
+	path = apps/core_federated_search_app
+	url = git@github.com:cdcs-repos/core_federated_search_app.git
+[submodule "apps/core_explore_federated_search_app"]
+	path = apps/core_explore_federated_search_app
+	url = git@github.com:cdcs-repos/core_explore_federated_search_app.git
+[submodule "apps/core_oaipmh_common_app"]
+	path = apps/core_oaipmh_common_app
+	url = git@github.com:cdcs-repos/core_oaipmh_common_app.git
+[submodule "apps/core_oaipmh_harvester_app"]
+	path = apps/core_oaipmh_harvester_app
+	url = git@github.com:cdcs-repos/core_oaipmh_harvester_app.git
+[submodule "apps/core_explore_oaipmh_app"]
+	path = apps/core_explore_oaipmh_app
+	url = git@github.com:cdcs-repos/core_explore_oaipmh_app.git
+[submodule "apps/core_exporters_app"]
+	path = apps/core_exporters_app
+	url = git@github.com:cdcs-repos/core_exporters_app.git
+[submodule "apps/core_module_blob_host_app"]
+	path = apps/core_module_blob_host_app
+	url = git@github.com:cdcs-repos/core_module_blob_host_app.git
+[submodule "apps/core_module_excel_uploader_app"]
+	path = apps/core_module_excel_uploader_app
+	url = git@github.com:cdcs-repos/core_module_excel_uploader_app.git
+[submodule "apps/core_module_periodic_table_app"]
+	path = apps/core_module_periodic_table_app
+	url = git@github.com:cdcs-repos/core_module_periodic_table_app.git
+[submodule "apps/core_module_chemical_composition_app"]
+	path = apps/core_module_chemical_composition_app
+	url = git@github.com:cdcs-repos/core_module_chemical_composition_app.git
+[submodule "apps/core_module_text_area_app"]
+	path = apps/core_module_text_area_app
+	url = git@github.com:cdcs-repos/core_module_text_area_app.git
+[submodule "apps/core_oaipmh_provider_app"]
+	path = apps/core_oaipmh_provider_app
+	url = git@github.com:cdcs-repos/core_oaipmh_provider_app.git
+[submodule "apps/core_composer_app"]
+	path = apps/core_composer_app
+	url = git@github.com:cdcs-repos/core_composer_app.git
+[submodule "apps/xml_utils"]
+	path = apps/xml_utils
+	url = git@github.com:cdcs-repos/xml_utils.git
+[submodule "apps/signals_utils"]
+	path = apps/signals_utils
+	url = git@github.com:cdcs-repos/signals_utils.git
+[submodule "apps/blob_utils"]
+	path = apps/blob_utils
+	url = git@github.com:cdcs-repos/blob_utils.git
+[submodule "apps/core_parser_app"]
+	path = apps/core_parser_app
+	url = git@github.com:cdcs-repos/core_parser_app.git
